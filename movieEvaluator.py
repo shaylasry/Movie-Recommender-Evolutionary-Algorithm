@@ -1,0 +1,31 @@
+from eckity.evaluators.simple_individual_evaluator import SimpleIndividualEvaluator
+
+languagesList = {}
+genresList = {}
+
+
+class movieEvaluator(SimpleIndividualEvaluator):
+    
+
+    def __init__(self, moviesScores, lowerBound):
+        super().__init__()
+        #list of all the movies objects we generated from he api
+        self.moviesScores = moviesScores
+        self.lowerBound = lowerBound
+
+    #TODO in main grade movies before        
+    def _grading_movies(self, individual):
+        return sum(individual.vector)    
+
+    def _evaluate_individual(self, individual):
+        individualVector = individual.vector
+        sum = 0
+
+        for i in range(len(individualVector)):
+            movieScore = self.moviesScores[i]
+            if movieScore >= self.lowerBound:
+                sum += individualVector[i] * movieScore
+    
+        return sum
+
+   
