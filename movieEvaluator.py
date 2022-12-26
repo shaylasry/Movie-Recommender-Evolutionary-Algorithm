@@ -25,6 +25,8 @@ class movieEvaluator(SimpleIndividualEvaluator):
             movieScore = self.moviesScores[i]
             if movieScore >= self.lowerBound:
                 sum += individualVector[i] * movieScore
+            else:
+                sum += individualVector[i] * -1 *  (2 - movieScore)
     
         return sum
 

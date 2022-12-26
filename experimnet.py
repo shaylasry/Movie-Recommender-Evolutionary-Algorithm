@@ -18,10 +18,11 @@ from movieEvaluator import movieEvaluator
 #hard constrains : category ,langauge
 #soft constrains : rating, year, runtime
 
-MAX_GENERATION = 500
+MAX_GENERATION = 1000
 
 
 def main():
+    lowerBoundGrade = 1.5
     movies = MoviesApi.loadMovies()
     numOfmovies = len(movies)
     userRequest = {"genres": set(), "languages": set(), "year": None, "timeInMinutes": None}
@@ -62,13 +63,13 @@ def main():
 
     algo = SimpleEvolution(
         Subpopulation(creators=GABitStringVectorCreator(length=numOfmovies),
-                      population_size=400,
+                      population_size=300,
                       # user-defined fitness evaluation method with the lower bound of matching criteria for each movie
-                      evaluator=movieEvaluator(moviesScores, 0.90),
+                      evaluator=movieEvaluator(moviesScores, lowerBoundGrade),
                       # minimization problem (fitness is MAE), so higher fitness is worse
                       higher_is_better=True,
                       # TODO - Check what is elitism_rate
-                      elitism_rate=1 / 400,
+                      elitism_rate=0.10,
                       # genetic operators sequence to be applied in each generation
                       operators_sequence=[
                           VectorKPointsCrossover(probability=0.5, k=1),
