@@ -23,8 +23,27 @@ class MoviesApi:
     }
 
     @staticmethod
-    def loadMovies():
-        numOfPages = 25
+    def loadFromJson():
+        try:
+            with open('db.json', 'r') as openfile:
+                # Reading from json file
+                json_object = json.load(openfile)
+                Movie.setGenres(json_object['genres'])
+                movies = []
+                for movie_data in json_object['movies']:
+                    movies.append(Movie(movie_data['genres'],
+                                        movie_data['originalLanguage'],
+                                        movie_data['runtime'],
+                                        movie_data['year'],
+                                        movie_data['originalTitle'],
+                                        movie_data['imdbRating']))
+                return movies
+        except:
+            return False
+
+    @staticmethod
+    def loadFromApi():
+        numOfPages = 40
         movies_raw = []
         for page in range(20, numOfPages + 1):
             querystring = {"country": "il", "service": "netflix", "type": "movie", "page": "{}".format(page)}
@@ -61,5 +80,21 @@ class MoviesApi:
         # for key in movies_map:
         #     print(movies_map[key])
 
+        return {'movies': movies, 'movies_raw': movies_raw}
+
+    @staticmethod
+    def loadMovies():
+        movies = MoviesApi.loadFromJson()
+        if not movies:
+            movies_arr = MoviesApi.loadFromApi()
+            movies = movies_arr['movies']
+            MoviesApi.saveToJson(movies_arr['movies_raw'])
         return movies
+
+    @classmethod
+    def saveToJson(cls, movies):
+        movies_dict = {"genres": Movie.GENRES_MAP, "movies": movies}
+        json_obj = json.dumps(movies_dict, indent=4)
+        with open("db.json", "w") as outfile:
+            outfile.write(json_obj)
 
