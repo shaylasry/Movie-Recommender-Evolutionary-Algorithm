@@ -43,7 +43,7 @@ class MoviesApi:
 
     @staticmethod
     def loadFromApi():
-        numOfPages = 40
+        numOfPages = 90
         movies_raw = []
         for page in range(20, numOfPages + 1):
             querystring = {"country": "il", "service": "netflix", "type": "movie", "page": "{}".format(page)}
