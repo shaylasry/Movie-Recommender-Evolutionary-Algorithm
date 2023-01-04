@@ -5,20 +5,24 @@ from eckity.evaluators.simple_individual_evaluator import SimpleIndividualEvalua
 from eckity.genetic_operators.crossovers.vector_k_point_crossover import VectorKPointsCrossover
 from eckity.genetic_operators.mutations.vector_random_mutation import BitStringVectorNFlipMutation
 from eckity.genetic_operators.selections.tournament_selection import TournamentSelection
+from eckity.genetic_operators.selections.elitism_selection import ElitismSelection
+
 from eckity.statistics.best_average_worst_statistics import BestAverageWorstStatistics
 from eckity.subpopulation import Subpopulation
 from eckity.termination_checkers.threshold_from_target_termination_checker import ThresholdFromTargetTerminationChecker
 
 from Movie import Movie
 from api import MoviesApi
+from bitmutation import BitMutation
 from movieEvaluator import movieEvaluator
+from vector import Vector
 
 # 28 genres , languages to check, years from 1932 - 2022 jump of ten so we get 9 places -> 28 + 9 + 3 +language? = 40 + ?
 # fitness categories:
 # hard constrains : category ,langauge
 # soft constrains : rating, year, runtime
 
-MAX_GENERATION = 400
+MAX_GENERATION = 500
 
 
 def main():
@@ -82,8 +86,15 @@ def main():
 
         moviesScores = grading_movies(movies, userRequest, criterionsSize)
 
-        print(movies)
-        print(moviesScores)
+        max_fitness = 0
+        matched_movies = 0
+        for movie_score in moviesScores:
+            if (movie_score >= 1.5):
+                max_fitness += movie_score
+                matched_movies += 1
+        print("max_fitness:" + str(max_fitness))
+        print("matched_movies:" + str(matched_movies))
+        threshold = 0.1 * max_fitness
 
         algo = SimpleEvolution(
             Subpopulation(creators=GABitStringVectorCreator(length=numOfmovies),
@@ -92,22 +103,22 @@ def main():
                           evaluator=movieEvaluator(moviesScores, lowerBoundGrade),
                           # minimization problem (fitness is MAE), so higher fitness is worse
                           higher_is_better=True,
-                          # TODO - Check what is elitism_rate
-                          elitism_rate=1/300,
+                          elitism_rate=10/300,
                           # genetic operators sequence to be applied in each generation
                           operators_sequence=[
-                              VectorKPointsCrossover(probability=0.5, k=2),
-                              BitStringVectorNFlipMutation(probability=0.5, probability_for_each=0.2, n=numOfmovies)
+                              Vector(probability=0.5, arity=2, events=None, moviesScores=moviesScores,
+                                     lowerBound=lowerBoundGrade),
+                              BitMutation(probability=0.5, probability_for_each=0.04, n=numOfmovies,moviesScores=moviesScores)
                           ],
                           selection_methods=[
                               # (selection method, selection probability) tuple
-                              (TournamentSelection(tournament_size=3, higher_is_better=True), 1)
+                              (TournamentSelection(tournament_size=2, higher_is_better=True), 1)
                           ]
                           ),
             breeder=SimpleBreeder(),
             max_workers=4,
             max_generation=MAX_GENERATION,
-            # termination_checker=ThresholdFromTargetTerminationChecker(optimal=1000, threshold=0.0),
+            termination_checker=ThresholdFromTargetTerminationChecker(optimal=max_fitness, threshold=threshold),
             statistics=BestAverageWorstStatistics()
         )
         algo.evolve()
