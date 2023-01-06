@@ -1,11 +1,13 @@
 class Movie:
     GENRES_MAP = dict()
+    GENRES = set()
     LANGUAGES = set()
 
     def __init__(self, genres, language, timeInMinutes, year, title, imdb_rank):
         self.genres = genres
         self.language = language
         Movie.LANGUAGES.add(self.language)
+        Movie.GENRES.update(self.genres)
         self.timeInMinutes = timeInMinutes
         self.year = year
         self.title = title
