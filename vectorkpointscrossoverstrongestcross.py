@@ -3,7 +3,7 @@ from random import sample
 from eckity.genetic_operators.genetic_operator import GeneticOperator
 
 
-class Vector(GeneticOperator):
+class VectorKPointsCrossoverStrongestCross(GeneticOperator):
     def __init__(self, probability=1, arity=2, events=None, moviesScores=[], lowerBound=1.5):
         """
             Vector N Point Mutation.

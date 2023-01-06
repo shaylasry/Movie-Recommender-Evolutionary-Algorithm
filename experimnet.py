@@ -13,16 +13,16 @@ from eckity.termination_checkers.threshold_from_target_termination_checker impor
 
 from Movie import Movie
 from api import MoviesApi
-from bitmutation import BitMutation
+from prioritizedvectornpointmutation import PrioritizedVectorNPointMutation
 from movieEvaluator import movieEvaluator
-from vector import Vector
+from vectorkpointscrossoverstrongestcross import VectorKPointsCrossoverStrongestCross
 
 # 28 genres , languages to check, years from 1932 - 2022 jump of ten so we get 9 places -> 28 + 9 + 3 +language? = 40 + ?
 # fitness categories:
 # hard constrains : category ,langauge
 # soft constrains : rating, year, runtime
 
-MAX_GENERATION = 500
+MAX_GENERATION = 150
 
 
 def main():
@@ -94,7 +94,7 @@ def main():
                 matched_movies += 1
         print("max_fitness:" + str(max_fitness))
         print("matched_movies:" + str(matched_movies))
-        threshold = 0.1 * max_fitness
+        threshold = 0.2 * max_fitness
 
         algo = SimpleEvolution(
             Subpopulation(creators=GABitStringVectorCreator(length=numOfmovies),
@@ -103,12 +103,14 @@ def main():
                           evaluator=movieEvaluator(moviesScores, lowerBoundGrade),
                           # minimization problem (fitness is MAE), so higher fitness is worse
                           higher_is_better=True,
-                          elitism_rate=10/300,
+                          elitism_rate=5/300,
                           # genetic operators sequence to be applied in each generation
                           operators_sequence=[
-                              Vector(probability=0.5, arity=2, events=None, moviesScores=moviesScores,
-                                     lowerBound=lowerBoundGrade),
-                              BitMutation(probability=0.5, probability_for_each=0.04, n=numOfmovies,moviesScores=moviesScores)
+                              # VectorKPointsCrossover(probability=0.5, arity=2, k=1),
+                              VectorKPointsCrossoverStrongestCross(probability=0.5, arity=2, events=None, moviesScores=moviesScores,
+                                                                   lowerBound=lowerBoundGrade),
+                              PrioritizedVectorNPointMutation(probability=0.2, probability_for_each=0.02, n=numOfmovies, moviesScores=moviesScores, lowerBound=lowerBoundGrade)
+
                           ],
                           selection_methods=[
                               # (selection method, selection probability) tuple
@@ -122,7 +124,6 @@ def main():
             statistics=BestAverageWorstStatistics()
         )
         algo.evolve()
-        # end_time = time()
         result = algo.execute()
         if (result.count(1) < 1):
             print("Sadly, our recommender did not found enough recommendations for you..")
