@@ -56,7 +56,9 @@ def main():
         userRequest = {"genres": set(), "languages": set(), "year": None, "timeInMinutes": None}
         print("Hello! Enjoy our recommender!")
         print("Please choose your preferred genres from this list: (enter the key)")
-        print(Movie.GENRES_MAP)
+        for m in list(Movie.GENRES):
+            print(m + ". " + Movie.GENRES_MAP[m])
+
         finish = False
         while not finish:
             genres_choice = input("Enter the key of the genre, for finish enter 'finish'")
