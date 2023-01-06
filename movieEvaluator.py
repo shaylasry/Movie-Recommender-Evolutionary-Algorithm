@@ -13,9 +13,6 @@ class movieEvaluator(SimpleIndividualEvaluator):
         self.moviesScores = moviesScores
         self.lowerBound = lowerBound
 
-    #TODO in main grade movies before        
-    def _grading_movies(self, individual):
-        return sum(individual.vector)    
 
     def _evaluate_individual(self, individual):
         individualVector = individual.vector
