@@ -5,6 +5,7 @@ from eckity.breeders.simple_breeder import SimpleBreeder
 from eckity.creators.ga_creators.bit_string_vector_creator import GABitStringVectorCreator
 from eckity.evaluators.simple_individual_evaluator import SimpleIndividualEvaluator
 from eckity.genetic_operators.crossovers.vector_k_point_crossover import VectorKPointsCrossover
+from eckity.genetic_operators.mutations.vector_n_point_mutation import VectorNPointMutation
 from eckity.genetic_operators.mutations.vector_random_mutation import BitStringVectorNFlipMutation
 from eckity.genetic_operators.selections.tournament_selection import TournamentSelection
 from eckity.genetic_operators.selections.elitism_selection import ElitismSelection
@@ -117,7 +118,9 @@ def main():
                           elitism_rate=5/300,
                           # genetic operators sequence to be applied in each generation
                           operators_sequence=[
+
                               # VectorKPointsCrossover(probability=0.5, arity=2, k=1),
+                              # VectorNPointMutation(probability=0.2, n=numOfmovies)
                               VectorKPointsCrossoverStrongestCross(probability=0.5, arity=2, events=None, moviesScores=moviesScores,
                                                                    lowerBound=lowerBoundGrade),
                               PrioritizedVectorNPointMutation(probability=0.2, probability_for_each=0.02, n=numOfmovies, moviesScores=moviesScores, lowerBound=lowerBoundGrade)
@@ -132,7 +135,7 @@ def main():
             max_workers=4,
             max_generation=MAX_GENERATION,
             termination_checker=ThresholdFromTargetTerminationChecker(optimal=max_fitness, threshold=threshold),
-            statistics=BestAverageWorstStatistics()
+            statistics=BestAverageWorstStatistics('{},{},{}', output_stream=open("output.csv", "w"))
         )
         algo.evolve()
         result = algo.execute()
@@ -141,6 +144,7 @@ def main():
             print("Please try to change some of your choiceses, thank u")
             continue
         else:
+            algo.statistics
             finish_all = True
 
     print("Our recommendations for you:")
@@ -149,6 +153,8 @@ def main():
         if result[i]:
             print(str(i) + ". " + movies[i].title)
             rec.append(movies[i].json())
+    print("total movies in db: " + str(len(movies)))
+    print("recommended movies in db: " + str(len(rec)))
     json_res = json.dumps({"results": rec}, indent=4)
     with open("results.json", "w") as outfile:
         outfile.write(json_res)
