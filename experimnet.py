@@ -1,3 +1,5 @@
+import json
+
 from eckity.algorithms.simple_evolution import SimpleEvolution
 from eckity.breeders.simple_breeder import SimpleBreeder
 from eckity.creators.ga_creators.bit_string_vector_creator import GABitStringVectorCreator
@@ -33,8 +35,15 @@ def main():
     while not finish_all:
         criterionsSize = {"genres": float, "language": float, "year": float, "timeInMinutes": float}
         print(
-            "Please rate the importance of each criterion. Write for each criterion a number from 0 to 1, where the sum of all criteria together is 1.")
-        finish = False
+            "Please rate the importance of each criterion. "
+            "Write for each criterion a number from 0 to 1, where the sum of all criteria together is 1.")
+        finish = "y" == str(input("Do you want to use our recommendation for it? y/n"))
+
+        if finish:
+            criterionsSize["genres"] = 0.6
+            criterionsSize["language"] = 0.2
+            criterionsSize["year"] = 0.1
+            criterionsSize["timeInMinutes"] = 0.1
 
         while not finish:
             genres_rate = float(input("Enter your rate for genres criterion:"))
@@ -57,7 +66,7 @@ def main():
         print("Hello! Enjoy our recommender!")
         print("Please choose your preferred genres from this list: (enter the key)")
         for m in list(Movie.GENRES):
-            print(m + ". " + Movie.GENRES_MAP[m])
+            print(str(m) + ". " + Movie.GENRES_MAP[str(m)])
 
         finish = False
         while not finish:
@@ -135,11 +144,14 @@ def main():
             finish_all = True
 
     print("Our recommendations for you:")
+    rec = []
     for i in range(len(movies)):
         if result[i]:
-            print(str(i) + ". " + str(movies[i]))
-    # print_results(algo.best_of_run_)
-    # print(f'Run time: {end_time-start_time}s')
+            print(str(i) + ". " + movies[i].title)
+            rec.append(movies[i].json())
+    json_res = json.dumps({"results": rec}, indent=4)
+    with open("results.json", "w") as outfile:
+        outfile.write(json_res)
 
 
 def grading_movies(movies, userRequest, criterionsSize):

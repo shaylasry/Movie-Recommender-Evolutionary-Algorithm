@@ -32,6 +32,15 @@ class VectorKPointsCrossoverStrongestCross(GeneticOperator):
         self.lowerBound = lowerBound
         super().__init__(probability=probability, arity=arity, events=events)
 
+    def sumChangeName(self, start, end, sum_init, individuals, individuals_index):
+        for i in range(start, end):
+            movieScore = self.moviesScores[i]
+            if movieScore >= self.lowerBound:
+                sum_init += individuals[individuals_index].get_vector()[i] * movieScore
+            else:
+                sum_init += individuals[individuals_index].get_vector()[i] * -1 * (2 - movieScore)
+        return sum_init
+
     def apply(self, individuals):
         """
         Attempt to perform the mutation operator
@@ -54,53 +63,14 @@ class VectorKPointsCrossoverStrongestCross(GeneticOperator):
         start_index = 0
         for end_point in self.points:
 
-            original_sum1 = 0
-            for i in range(0, len(individuals[0].get_vector())):
-                movieScore = self.moviesScores[i]
-                if movieScore >= self.lowerBound:
-                    original_sum1 += individuals[0].get_vector()[i] * movieScore
-                else:
-                    original_sum1 += individuals[0].get_vector()[i] * -1 * (2 - movieScore)
-            original_sum2 = 0
-            for i in range(0, len(individuals[1].get_vector())):
-                movieScore = self.moviesScores[i]
-                if movieScore >= self.lowerBound:
-                    original_sum2 += individuals[1].get_vector()[i] * movieScore
-                else:
-                    original_sum2 += individuals[1].get_vector()[i] * -1 * (2 - movieScore)
-
+            original_sum1 = self.sumChangeName(0, len(individuals[0].get_vector()), 0, individuals, 0)
+            original_sum2 = self.sumChangeName(0, len(individuals[1].get_vector()), 0, individuals, 1)
             max_original = max(original_sum2, original_sum1)
 
-            sum1 = 0
-            for i in range(start_index, end_point):
-                movieScore = self.moviesScores[i]
-                if movieScore >= self.lowerBound:
-                    sum1 += individuals[0].get_vector()[i] * movieScore
-                else:
-                    sum1 += individuals[0].get_vector()[i] * -1 * (2 - movieScore)
-
-            for i in range(end_point, start_index):
-                movieScore = self.moviesScores[i]
-                if movieScore >= self.lowerBound:
-                    sum1 += individuals[1].get_vector()[i] * movieScore
-                else:
-                    sum1 += individuals[1].get_vector()[i] * -1 * (2 - movieScore)
-
-            sum2 = 0
-            for i in range(start_index, end_point):
-                movieScore = self.moviesScores[i]
-                if movieScore >= self.lowerBound:
-                    sum2 += individuals[1].get_vector()[i] * movieScore
-                else:
-                    sum2 += individuals[1].get_vector()[i] * -1 * (2 - movieScore)
-
-            for i in range(end_point, start_index):
-                movieScore = self.moviesScores[i]
-                if movieScore >= self.lowerBound:
-                    sum2 += individuals[0].get_vector()[i] * movieScore
-                else:
-                    sum2 += individuals[0].get_vector()[i] * -1 * (2 - movieScore)
-
+            sum1 = self.sumChangeName(start_index, end_point, 0, individuals, 0)
+            sum1 = self.sumChangeName(end_point, start_index, sum1, individuals, 1)
+            sum2 = self.sumChangeName(start_index, end_point, 0, individuals, 1)
+            sum2 = self.sumChangeName(end_point, start_index, sum2, individuals, 0)
 
             if max_original > sum1 and max_original > sum2:
                 if original_sum1 > original_sum2:

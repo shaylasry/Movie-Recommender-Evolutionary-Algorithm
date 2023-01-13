@@ -17,6 +17,9 @@ class Movie:
         return "Movie title: " + self.title + \
                "\nGenres: " + str(self.genres) + "\nLanguage: " + self.language + "\nTime in minutes: " + str(self.timeInMinutes) + "\nYear: " + str(self.year) + "\nIMDB ranking: " + str(self.imdb_rank)
 
+    def json(self):
+        return {"title": self.title, "genres": self.genres, "language": self.language, "timeInMinutes": self.timeInMinutes, "year": self.year}
+
     @staticmethod
     def setGenres(genres):
         Movie.GENRES_MAP = genres
