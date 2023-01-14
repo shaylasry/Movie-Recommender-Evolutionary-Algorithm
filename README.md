@@ -1,9 +1,9 @@
 **![](media/91c3371614a5b41d2b4499d3bc8e510a.jpeg)**
 
-1. [Example](#מבוא)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](## תיאור הפתרון)
+1. [מבוא](#מבוא)
+2. [Example2](#תיאור הבעיה)
+3. [תיאור הפתרון](#תיאור הפתרון)
+4. [Fourth Example](#אלגוריתם אבולוציוני)
 
 ## מבוא
 
