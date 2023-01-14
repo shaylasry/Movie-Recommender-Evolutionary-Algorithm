@@ -72,6 +72,8 @@ Movie recommender systems הינה מערכת שממליצה למשתמש על �
 
 נשים לב כי מדובר בבעיית מקסימום עליה נפרט בהמשך.
 
+## אלגוריתם אבולוציוני
+
 **חישוב fitness:**
 
 נשתמש במחלקה movieEvaluator הממששת את הפונקציה evaluate_individual().  
