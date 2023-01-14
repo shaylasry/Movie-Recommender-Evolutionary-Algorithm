@@ -89,7 +89,7 @@ class VectorKPointsCrossoverStrongestCross(GeneticOperator):
                 replaced_part = individuals[1].get_vector_part(start_index, end_point)
                 replaced_part = individuals[0].replace_vector_part(replaced_part, start_index)
                 individuals[1].replace_vector_part(replaced_part, start_index)
-            start_index = end_point  
+            start_index = end_point
 
         self.applied_individuals = individuals
         return individuals
