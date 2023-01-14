@@ -1,4 +1,4 @@
-![][1]
+![](./media/image1.jpeg){width="6.5in" height="4.878472222222222in"}
 
 # **[תוכן עניינים]{.underline}** {#תוכן-עניינים .TOC-Heading}
 
@@ -186,31 +186,31 @@ Movie recommender systems [הינה מערכת שממליצה למשתמש על 
 
 [המשתמש מקבל אפשרות לבחור האם להזין בעצמו את המשקל לכל קריטריון או להחליט על המשקל בעצמו.]{dir="rtl"}
 
-![][2]
+![](./media/image2.png){width="6.5in" height="0.4048611111111111in"}
 
 [נבצע ריצה עם ההמלצה שלנו:]{dir="rtl"}
 
-![][3]
+![](./media/image3.png){width="5.224636920384952in" height="2.3018963254593174in"}
 
 [המשתמש יבחר ז\'אנר רצוי (אחד או יותר) ולאחר כל בחירה של ז\'אנר ילחץ על]{dir="rtl"} enter[. לאחר שסיים לבחור את כל הז\'אנרים המשתמש יזין למסך את המילה]{dir="rtl"} 'finish' [ולאחר מכן ילחץ על]{dir="rtl"} enter[.]{dir="rtl"}
 
-![][4]
+![](./media/image4.png){width="5.021534339457568in" height="0.4375612423447069in"}
 
 [המתמש יבחר שפת מקור רצויה (אחת או יותר) באופן זהה לבחירת הז\'אנר.]{dir="rtl"}
 
-![][5]
+![](./media/image5.png){width="6.5in" height="0.8020833333333334in"}
 
 [כעת המשתמש יבחר שנת יציאה מינימלית ואורך סרט מקסימלי.]{dir="rtl"}
 
-![][6]
+![](./media/image6.png){width="6.1258552055993in" height="0.40630686789151355in"}
 
 [האלגוריתם יעצור במידה והגיע להתאמה לפי ה-]{dir="rtl"}threshold [ (בקוד שלנו בחרנו 80 אחוז התאמה, כלומר]{dir="rtl"} threshold = 0.2 \* max_fitness[).]{dir="rtl"}
 
-![][7]
+![](./media/image7.png){width="2.0106977252843397in" height="1.2605927384076991in"}
 
 [בסיום ריצת האלגוריתם האבולוציוני התוכנית תדפיס רשימה של כל הסרטים המומלצים בהתאם לקריטריונים ודרישת המשתמש (במידה ולא נמצאו כאלה התוכנית תציע למשתמש להתחיל את התהליך מחדש).]{dir="rtl"}
 
-![][8]
+![](./media/image8.png){width="2.5836942257217848in" height="2.5524398512685913in"}
 
 **[[גרפים ונתונים עבור ריצות שונות:]{.underline}]{dir="rtl"}**
 
@@ -233,7 +233,7 @@ Best fitness = 3.72\
 total movies in DB: 88\
 recommended movies in DB: 4
 
-![][9]
+![](./media/image9.png){width="4.73393372703412in" height="3.5504483814523184in"}
 
 [**ריצה 2** --]{dir="rtl"} data base [גדול של סרטים עם]{dir="rtl"} VectorKPointsCrossover [ו-]{dir="rtl"}BitStringVectorNFlipMutation[:]{dir="rtl"}
 
@@ -243,9 +243,9 @@ Best Fitness = -27.540000000000003\
 total movies in DB: 568\
 recommended movies in DB: 86
 
-![][10]
+![](./media/image10.png){width="4.263868110236221in" height="3.1979024496937885in"}
 
-![][11][**ריצה 3** --]{dir="rtl"} data base [גדול של סרטים עם]{dir="rtl"} VectorKPointsCrossover [ו-]{dir="rtl"}BitStringVectorNFlipMutation [עם הגדלה של ה-]{dir="rtl"}initial population[:]{dir="rtl"}
+![](./media/image11.png){width="4.43125in" height="3.323611111111111in"}[**ריצה 3** --]{dir="rtl"} data base [גדול של סרטים עם]{dir="rtl"} VectorKPointsCrossover [ו-]{dir="rtl"}BitStringVectorNFlipMutation [עם הגדלה של ה-]{dir="rtl"}initial population[:]{dir="rtl"}
 
 [[שינוי אוכלוסייה מ-300 ל-5,000:]{.underline}]{dir="rtl"}
 
@@ -255,7 +255,7 @@ Best fitness = 19.28\
 total movies in DB: 568\
 recommended movies in DB: 33
 
-![][12][[שינוי אוכלוסייה ל-10,000:]{.underline}]{dir="rtl"}
+![](./media/image12.png){width="4.143939195100613in" height="3.1079549431321083in"}[[שינוי אוכלוסייה ל-10,000:]{.underline}]{dir="rtl"}
 
 Max fitness = 31.11\
 matched movies = 20\
@@ -271,11 +271,11 @@ Best fitness = -30.239999999999995\
 total movies in DB: 568\
 recommended movies in DB: 90
 
-![][13]
+![](./media/image13.png){width="4.226010498687664in" height="3.169508967629046in"}
 
 **[ריצה]{dir="rtl"} 5** [--]{dir="rtl"} data base [גדול של סרטים עם]{dir="rtl"} VectorKPointsCrossover [ ו-]{dir="rtl"} PrioritizedBitStringVectorNFlipMutation[:]{dir="rtl"}
 
-![][14]Max fitness = 31.11\
+![](./media/image14.png){width="4.1in" height="3.075in"}Max fitness = 31.11\
 matched movies = 20\
 Best fitness = 25.439999999999998\
 total movies in DB: 568\
@@ -283,7 +283,7 @@ recommended movies in DB: 21
 
 **[ריצה]{dir="rtl"} 6** [--]{dir="rtl"} data base [גדול של סרטים עם]{dir="rtl"} VectorKPointsCrossoverStrongestCross [ ו-]{dir="rtl"} PrioritizedBitStringVectorNFlipMutation[:]{dir="rtl"}
 
-![][15]Max fitness = 31.11\
+![](./media/image15.png){width="3.9327734033245845in" height="2.949580052493438in"}Max fitness = 31.11\
 matched movies = 20\
 Best fitness = 24.830000000000002\
 total movies in DB: 568\
@@ -304,19 +304,3 @@ recommended movies in DB: 16
 [עם זאת הגדלת אוכלוסייה היא פתרון בעייתי, שכן ככל שכמות הסרטים תגדל כך נצטרך גם להגדיל את כמות האוכלוסייה בהתאם. פתרון זה אינו יעיל ודורש חישובים כבדים ומחשבים חזקים יותר.]{dir="rtl"}
 
 [לסיכום לאחר הרצת כל ששת סוגי הריצה השונים מספר רב של פעמים, ניתן להסיק כי הפתרון היעיל ביותר הוא שימוש ב-]{dir="rtl"} PrioritizedBitStringVectorNFlipMutation [שמבצע מוטציות רק כאשר המוטציה משפרת את ה-]{dir="rtl"}fitness [של הווקטור. גישה זו נותנת תוצאות זהות גם עבור]{dir="rtl"} VectorKPointsCrossover [וגם עבור]{dir="rtl"} VectorKPointsCrossoverStrongestCross [גם כאשר גודל האוכלוסייה נשאר נמוך (300).]{dir="rtl"}
-
-  [1]: ./media/image1.jpeg {width="6.5in" height="4.878472222222222in"}
-  [2]: ./media/image2.png {width="6.5in" height="0.4048611111111111in"}
-  [3]: ./media/image3.png {width="5.224636920384952in" height="2.3018963254593174in"}
-  [4]: ./media/image4.png {width="5.021534339457568in" height="0.4375612423447069in"}
-  [5]: ./media/image5.png {width="6.5in" height="0.8020833333333334in"}
-  [6]: ./media/image6.png {width="6.1258552055993in" height="0.40630686789151355in"}
-  [7]: ./media/image7.png {width="2.0106977252843397in" height="1.2605927384076991in"}
-  [8]: ./media/image8.png {width="2.5836942257217848in" height="2.5524398512685913in"}
-  [9]: ./media/image9.png {width="4.73393372703412in" height="3.5504483814523184in"}
-  [10]: ./media/image10.png {width="4.263868110236221in" height="3.1979024496937885in"}
-  [11]: ./media/image11.png {width="4.43125in" height="3.323611111111111in"}
-  [12]: ./media/image12.png {width="4.143939195100613in" height="3.1079549431321083in"}
-  [13]: ./media/image13.png {width="4.226010498687664in" height="3.169508967629046in"}
-  [14]: ./media/image14.png {width="4.1in" height="3.075in"}
-  [15]: ./media/image15.png {width="3.9327734033245845in" height="2.949580052493438in"}
