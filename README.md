@@ -126,12 +126,13 @@ VectorKPointsCrossover ו-BitStringVectorNFlipMutation הנתונים בחביל
 
 בתהליך זה נבצע bit-mutation בצורה הסתברותית בדומה לדרך בה פועל BitStringVectorNFlipMutation אך בשונה ממנו, לאחר הבחירה ההסתברותית אם נבחר לבצע bit-flip נפעיל שני אילוצים נוספים:
 
-1.  אם individual[i]=1 וגם קיבלנו תוצאה שווה גדולה ל- lowerBoundGrade לא נבצע bit-flip.
-2.  אם individual[i]=0 וגם קיבלנו תוצאה מתחת ל-lowerBoundGrade לא נבצע bit-flip.
+1\. אם individual[i]=1 וגם קיבלנו תוצאה שווה גדולה ל- lowerBoundGrade לא נבצע bit-flip.
 
-    לאחר הוספת PrioritizedBitStringVectorNFlipMutation התוצאות שקיבלנו השתפרו לרמת פלט מספקת גם במימוש עם VectorKPointsCrossoverStrongestCross אותו יצרנו וגם במימוש VectorKPointsCrossover שהיה קיים בחבילת Ec-Kity.
+2\. אם individual[i]=0 וגם קיבלנו תוצאה מתחת ל-lowerBoundGrade לא נבצע bit-flip.
 
-    **Selection:**
+לאחר הוספת PrioritizedBitStringVectorNFlipMutation התוצאות שקיבלנו השתפרו לרמת פלט מספקת גם במימוש עם VectorKPointsCrossoverStrongestCross אותו יצרנו וגם במימוש VectorKPointsCrossover שהיה קיים בחבילת Ec-Kity.
+
+**Selection:**
 
 בחרנו להשתמש ב-tournament selection בגודל 2 ו-higher is better = true.
 
