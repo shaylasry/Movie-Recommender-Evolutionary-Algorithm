@@ -100,14 +100,12 @@ VectorKPointsCrossover ו-BitStringVectorNFlipMutation הנתונים בחביל
 לאחר הגדלת ה-data base הגענו למספר של כ-560 סרטים ונתקלנו בבעיה להגיע לתוצאה מיטבית.
 
 לאחר מספר ניסויים שמנו לב כי הגדלת האוכלוסייה מסייעת להגיע לתוצאה טובה יותר, אך ככל שהגדלנו את האוכלוסייה נתקלנו בחישובים כבדים יותר שלקחו המון זמן.   
-על מנת להימנע מחישובים כבדים עקב גישת הגדלת האוכלוסייה החלטנו לנסות לבצע שינוי באופן הפעולה של ה- genetic operatorsבהם אנו משתמשים. תחילה ניסינו ליצור Crossover חדש:
+על מנת להימנע מחישובים כבדים עקב גישת הגדלת האוכלוסייה החלטנו לנסות לבצע שינוי באופן הפעולה של ה- genetic operatorsבהם אנו משתמשים. תחילה ניסינו ליצור Crossover חדש - VectorKPointsCrossoverStrongestCross:
 
--   VectorKPointsCrossoverStrongestCross:
+ניסיון ראשון:
 
-    ניסיון ראשון:
-
-    בתהליך הזה אנו בוחרים נקודה רנדומלית בה נחלק כל אחד מההורים באופן דומה לחלוקה ב- VectorKPointsCrossover ונבדוק מיהו הווקטור הטוב ביותר הנוצר מבין השניים הבאים:  
-    ילד שנוצר מהחלק הימני של הורה 1 והחלק השמאלי של הורה 2,
+בתהליך הזה אנו בוחרים נקודה רנדומלית בה נחלק כל אחד מההורים באופן דומה לחלוקה ב- VectorKPointsCrossover ונבדוק מיהו הווקטור הטוב ביותר הנוצר מבין השניים הבאים:  
+ילד שנוצר מהחלק הימני של הורה 1 והחלק השמאלי של הורה 2,
 
 ילד שנוצר מהחלק הימני של הורה 2 והחלק השמאלי של הורה 1.
 
@@ -124,11 +122,9 @@ VectorKPointsCrossover ו-BitStringVectorNFlipMutation הנתונים בחביל
   
 התהליך גם שיפר את התוצאות אך עדיין לא בצורה מספקת.
 
-לאחר שיצירת VectorKPointsCrossoverStrongestCross לא סיפק פתרון מיטבי לבעיה החלטנו לייצר גם Mutation operator חדש – PrioritizedBitStringVectorNFlipMutation.
+לאחר שיצירת VectorKPointsCrossoverStrongestCross לא סיפק פתרון מיטבי לבעיה החלטנו לייצר גם Mutation operator חדש – PrioritizedBitStringVectorNFlipMutation:
 
--   PrioritizedBitStringVectorNFlipMutation:
-
-    בתהליך זה נבצע bit-mutation בצורה הסתברותית בדומה לדרך בה פועל BitStringVectorNFlipMutation אך בשונה ממנו, לאחר הבחירה ההסתברותית אם נבחר לבצע bit-flip נפעיל שני אילוצים נוספים:
+בתהליך זה נבצע bit-mutation בצורה הסתברותית בדומה לדרך בה פועל BitStringVectorNFlipMutation אך בשונה ממנו, לאחר הבחירה ההסתברותית אם נבחר לבצע bit-flip נפעיל שני אילוצים נוספים:
 
 1.  אם individual[i]=1 וגם קיבלנו תוצאה שווה גדולה ל- lowerBoundGrade לא נבצע bit-flip.
 2.  אם individual[i]=0 וגם קיבלנו תוצאה מתחת ל-lowerBoundGrade לא נבצע bit-flip.
