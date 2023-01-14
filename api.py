@@ -18,8 +18,8 @@ class MoviesApi:
     # querystring = {"country":"il","service":"netflix","type":"movie","page":{}.format(i),"output_language":"en","language":"en"}
 
     headers = {
-        "X-RapidAPI-Key": 'c922141b9dmshedfa6dc0b3ebdb6p1ca41ejsn13bafd7188ba',
-        'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+        "X-RapidAPI-Key": "ccaf10462cmsh2b3ce0a88004f5dp19c27cjsn1044a7006e1b",
+        "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
     }
 
     @staticmethod
@@ -43,9 +43,9 @@ class MoviesApi:
 
     @staticmethod
     def loadFromApi():
-        numOfPages = 90
+        numOfPages = 70
         movies_raw = []
-        for page in range(20, numOfPages + 1):
+        for page in range(20, 20 + numOfPages + 1):
             querystring = {"country": "il", "service": "netflix", "type": "movie", "page": "{}".format(page)}
             getMovies = requests.request("GET", MoviesApi.url, headers=MoviesApi.headers, params=querystring)
             movies_raw = movies_raw + getMovies.json()['results']

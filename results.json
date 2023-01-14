@@ -1,0 +1,200 @@
+{
+    "results": [
+        {
+            "title": "Alfie",
+            "genres": [
+                35,
+                18,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 103,
+            "year": 2004
+        },
+        {
+            "title": "Ali's Wedding",
+            "genres": [
+                35,
+                18,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 110,
+            "year": 2017
+        },
+        {
+            "title": "Always Be My Maybe",
+            "genres": [
+                35,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 102,
+            "year": 2019
+        },
+        {
+            "title": "Anthony Jeselnik: Thoughts and Prayers",
+            "genres": [
+                35
+            ],
+            "language": "en",
+            "timeInMinutes": 59,
+            "year": 2015
+        },
+        {
+            "title": "Bo Burnham: Make Happy",
+            "genres": [
+                35,
+                10402
+            ],
+            "language": "en",
+            "timeInMinutes": 60,
+            "year": 2016
+        },
+        {
+            "title": "Bo Burnham: The Inside Outtakes",
+            "genres": [
+                35,
+                18,
+                4
+            ],
+            "language": "en",
+            "timeInMinutes": 63,
+            "year": 2022
+        },
+        {
+            "title": "Bo Burnham: What.",
+            "genres": [
+                35,
+                10402
+            ],
+            "language": "en",
+            "timeInMinutes": 60,
+            "year": 2013
+        },
+        {
+            "title": "Breaded Life",
+            "genres": [
+                35,
+                18,
+                14
+            ],
+            "language": "en",
+            "timeInMinutes": 0,
+            "year": 2021
+        },
+        {
+            "title": "Budhia Singh: Born to Run",
+            "genres": [
+                1,
+                18,
+                5
+            ],
+            "language": "hi",
+            "timeInMinutes": 112,
+            "year": 2016
+        },
+        {
+            "title": "Can You Keep a Secret?",
+            "genres": [
+                35,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 94,
+            "year": 2019
+        },
+        {
+            "title": "Catching Feelings",
+            "genres": [
+                35,
+                18,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 115,
+            "year": 2017
+        },
+        {
+            "title": "Christmas Inheritance",
+            "genres": [
+                35,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 105,
+            "year": 2017
+        },
+        {
+            "title": "Christmas Time Is Here",
+            "genres": [
+                35,
+                10751,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 84,
+            "year": 2021
+        },
+        {
+            "title": "Christmas with You",
+            "genres": [
+                35,
+                10751,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 91,
+            "year": 2022
+        },
+        {
+            "title": "Christmas with a Prince",
+            "genres": [
+                35,
+                18,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 90,
+            "year": 2018
+        },
+        {
+            "title": "Cook Off",
+            "genres": [
+                35,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 116,
+            "year": 2017
+        },
+        {
+            "title": "Dave Chappelle: Sticks & Stones",
+            "genres": [
+                35
+            ],
+            "language": "en",
+            "timeInMinutes": 65,
+            "year": 2019
+        },
+        {
+            "title": "Dave Chappelle: The Closer",
+            "genres": [
+                35
+            ],
+            "language": "en",
+            "timeInMinutes": 72,
+            "year": 2021
+        },
+        {
+            "title": "Dear Affy",
+            "genres": [
+                35,
+                10749
+            ],
+            "language": "en",
+            "timeInMinutes": 126,
+            "year": 2020
+        }
+    ]
+}
