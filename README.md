@@ -1,5 +1,4 @@
 <img src="./media/image1.jpeg" style="width:6.5in;height:4.87847in" />
-<div style="text-align: right">
 # **<u>תוכן עניינים</u>**
 
 **מבוא3**
@@ -474,4 +473,3 @@ PrioritizedBitStringVectorNFlipMutation <span dir="rtl">שמבצע מוטציו�
 זו נותנת תוצאות זהות גם עבור</span> VectorKPointsCrossover <span
 dir="rtl">וגם עבור</span> VectorKPointsCrossoverStrongestCross <span
 dir="rtl">גם כאשר גודל האוכלוסייה נשאר נמוך (300).</span>
-</div>
