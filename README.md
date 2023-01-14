@@ -217,7 +217,7 @@ recommended movies in DB: 86
 
 ![](media/2d962d5873cd6b273af371debe05a171.png)
 
-![](media/d72268c3db0c9e717f72cfbcfeed3459.png)**ריצה 3** – data base גדול של סרטים עם VectorKPointsCrossover ו-BitStringVectorNFlipMutation עם הגדלה של ה-initial population:
+**ריצה 3** – data base גדול של סרטים עם VectorKPointsCrossover ו-BitStringVectorNFlipMutation עם הגדלה של ה-initial population:
 
 שינוי אוכלוסייה מ-300 ל-5,000:
 
@@ -227,13 +227,17 @@ matched movies = 20
 total movies in DB: 568  
 recommended movies in DB: 33
 
-![](media/5062a29d8afc8488d29a65ec78f9db56.png)שינוי אוכלוסייה ל-10,000:
+![Chart Description automatically generated](media/d72268c3db0c9e717f72cfbcfeed3459.png)
+
+שינוי אוכלוסייה ל-10,000:
 
 Max fitness = 31.11  
 matched movies = 20  
  Best fitness = 25.28  
 total movies in DB: 568  
 recommended movies in DB: 27
+
+![Chart Description automatically generated](media/5062a29d8afc8488d29a65ec78f9db56.png)
 
 **ריצה 4** – data base גדול של סרטים עם VectorKPointsCrossoverStrongestCross ו-BitStringVectorNFlipMutation:
 
