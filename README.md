@@ -1,9 +1,9 @@
 **![](media/91c3371614a5b41d2b4499d3bc8e510a.jpeg)**
 
-1. [Example](#example)
+1. [Example](## מבוא)
 2. [Example2](#example2)
 3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+4. [Fourth Example](## תיאור הפתרון)
 
 ## מבוא
 
