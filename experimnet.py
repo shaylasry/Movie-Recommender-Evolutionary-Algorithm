@@ -69,6 +69,7 @@ def main():
             termination_checker=ThresholdFromTargetTerminationChecker(optimal=max_fitness, threshold=threshold),
             statistics=BestAverageWorstStatistics()
         )
+        
         algo.evolve()
         result = algo.execute()
         if result.count(1) < 1:
