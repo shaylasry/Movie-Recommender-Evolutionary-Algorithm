@@ -260,19 +260,24 @@ recommended movies in DB: 90
 
 **ריצה 5** – data base גדול של סרטים עם VectorKPointsCrossover ו- PrioritizedBitStringVectorNFlipMutation:
 
-![](media/1b6f3535a1453cbb840014cb6e7e1171.png)Max fitness = 31.11  
+Max fitness = 31.11  
 matched movies = 20  
  Best fitness = 25.439999999999998  
 total movies in DB: 568  
 recommended movies in DB: 21
 
+![](media/1b6f3535a1453cbb840014cb6e7e1171.png)
+
 **ריצה 6** – data base גדול של סרטים עם VectorKPointsCrossoverStrongestCross ו- PrioritizedBitStringVectorNFlipMutation:
 
-![](media/2d6094b86641c2e6c504e67133d8947d.png)Max fitness = 31.11  
+Max fitness = 31.11  
 matched movies = 20  
  Best fitness = 24.830000000000002  
 total movies in DB: 568  
 recommended movies in DB: 16
+
+![](media/2d6094b86641c2e6c504e67133d8947d.png)
+
 
 ## **מסקנות וסיכום:** <a name="summary"></a>
 
